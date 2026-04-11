@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Work",
+    "blog": "Thinking",
+    "guides": "Learned",
+    "contact": "Contact"
+  },
+  "hero": {
+    "cta": "See my work",
+    "contact": "LinkedIn"
+  },
+  "sections": {
+    "companies": "Companies I've worked for",
+    "recentProjects": "Recent Work",
+    "building": "What I'm Building",
+    "thinking": "What I'm Thinking",
+    "learned": "What I've Learned Today"
+  },
+  "projects": {
+    "viewProject": "View project",
+    "caseStudy": "Full case study",
+    "inProgress": "In progress",
+    "allProjects": "All projects",
+    "backToProjects": "← Work"
+  },
+  "blog": {
+    "readMore": "Read more",
+    "allPosts": "All posts",
+    "backToBlog": "← Thinking"
+  },
+  "guides": {
+    "readMore": "Read more",
+    "allGuides": "All guides",
+    "backToGuides": "← Learned"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "about": {
+    "title": "About"
+  },
+  "theme": {
+    "light": "Light theme",
+    "dark": "Dark theme"
+  },
+  "language": {
+    "toggle": "Português"
+  }
+}

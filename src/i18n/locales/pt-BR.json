@@ -1,0 +1,53 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "projects": "Projetos",
+    "blog": "Pensamentos",
+    "guides": "Aprendizados",
+    "contact": "Contato"
+  },
+  "hero": {
+    "cta": "Ver projetos",
+    "contact": "LinkedIn"
+  },
+  "sections": {
+    "companies": "Empresas com quem trabalhei",
+    "recentProjects": "Projetos Recentes",
+    "building": "O que estou construindo",
+    "thinking": "O que estou pensando",
+    "learned": "O que aprendi hoje"
+  },
+  "projects": {
+    "viewProject": "Ver projeto",
+    "caseStudy": "Case completo",
+    "inProgress": "Em construção",
+    "allProjects": "Todos os projetos",
+    "backToProjects": "← Projetos"
+  },
+  "blog": {
+    "readMore": "Ler mais",
+    "allPosts": "Todos os posts",
+    "backToBlog": "← Pensamentos"
+  },
+  "guides": {
+    "readMore": "Ler mais",
+    "allGuides": "Todos os aprendizados",
+    "backToGuides": "← Aprendizados"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "about": {
+    "title": "Sobre"
+  },
+  "theme": {
+    "light": "Tema claro",
+    "dark": "Tema escuro"
+  },
+  "language": {
+    "toggle": "English"
+  }
+}

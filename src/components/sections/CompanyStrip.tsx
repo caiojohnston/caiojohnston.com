@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { urlFor } from '@/lib/sanity/image'
@@ -15,30 +18,50 @@ interface CompanyStripProps {
 
 export function CompanyStrip({ companies }: CompanyStripProps) {
   const t = useTranslations('sections')
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   if (!companies.length) return null
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-12 border-t border-(--color-border)">
-      <p className="text-xs font-mono text-(--color-text-muted) uppercase tracking-widest mb-8">
+    <section className="max-w-6xl mx-auto px-6 py-12">
+      <h2 className="font-serif text-base text-(--color-text) mb-8">
         {t('companies')}
-      </p>
-      <div className="flex flex-wrap items-center gap-8">
-        {companies.map((company) => (
-          <div key={company._id} className="opacity-50 hover:opacity-80 transition-opacity">
-            {company.logo ? (
-              <Image
-                src={urlFor(company.logo as Parameters<typeof urlFor>[0]).height(40).url()}
-                alt={company.name}
-                width={120}
-                height={40}
-                className="h-8 w-auto object-contain grayscale"
-              />
-            ) : (
-              <span className="text-sm font-mono text-(--color-text-muted)">{company.name}</span>
-            )}
-          </div>
-        ))}
+      </h2>
+      <div className="flex flex-wrap items-center justify-center gap-10">
+        {companies.map((company) => {
+          const isHovered = hoveredId === company._id
+          const isOtherHovered = hoveredId !== null && !isHovered
+
+          return (
+            <div
+              key={company._id}
+              onMouseEnter={() => setHoveredId(company._id)}
+              onMouseLeave={() => setHoveredId(null)}
+              className={`transition-all duration-200 ease-out cursor-default ${
+                isHovered
+                  ? 'scale-110 opacity-100'
+                  : isOtherHovered
+                    ? 'opacity-30 blur-[2px]'
+                    : 'opacity-50'
+              }`}
+            >
+              {company.logo ? (
+                <Image
+                  src={urlFor(company.logo as Parameters<typeof urlFor>[0]).height(64).url()}
+                  alt={company.name}
+                  width={120}
+                  height={30}
+                  className={`object-contain transition-all duration-200 ${
+                    isHovered ? '' : 'grayscale'
+                  }`}
+                  style={{ height: '30px', width: 'auto' }}
+                />
+              ) : (
+                <span className="text-sm font-mono text-(--color-text-muted)">{company.name}</span>
+              )}
+            </div>
+          )
+        })}
       </div>
     </section>
   )

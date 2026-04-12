@@ -71,11 +71,11 @@ function ProjectsSection({
   return (
     <>
       {published.length > 0 && (
-        <section className="max-w-5xl mx-auto px-6 py-12 border-t border-(--color-border)">
+        <section className="max-w-6xl mx-auto px-6 py-12 border-t border-(--color-border)">
           <div className="flex items-center justify-between mb-8">
-            <p className="text-xs font-mono text-(--color-text-muted) uppercase tracking-widest">
+            <h2 className="font-serif text-base text-(--color-text)">
               {t('recentProjects')}
-            </p>
+            </h2>
             <Link
               href={allProjectsPath}
               className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors"
@@ -92,10 +92,10 @@ function ProjectsSection({
       )}
 
       {inProgress.length > 0 && (
-        <section className="max-w-5xl mx-auto px-6 py-12 border-t border-(--color-border)">
-          <p className="text-xs font-mono text-(--color-text-muted) uppercase tracking-widest mb-8">
+        <section className="max-w-6xl mx-auto px-6 py-12 border-t border-(--color-border)">
+          <h2 className="font-serif text-base text-(--color-text) mb-8">
             {t('building')}
-          </p>
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {inProgress.map((project) => (
               <ProjectCard key={project._id} project={project} locale={locale} />
@@ -123,11 +123,11 @@ function PostsSection({
   if (!posts.length) return null
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-12 border-t border-(--color-border)">
+    <section className="max-w-6xl mx-auto px-6 py-12 border-t border-(--color-border)">
       <div className="flex items-center justify-between mb-8">
-        <p className="text-xs font-mono text-(--color-text-muted) uppercase tracking-widest">
+        <h2 className="font-serif text-base text-(--color-text)">
           {t('thinking')}
-        </p>
+        </h2>
         <Link
           href={allPostsPath}
           className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors"
@@ -160,11 +160,11 @@ function GuidesSection({
   if (!guides.length) return null
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-12 border-t border-(--color-border)">
+    <section className="max-w-6xl mx-auto px-6 py-12 border-t border-(--color-border)">
       <div className="flex items-center justify-between mb-8">
-        <p className="text-xs font-mono text-(--color-text-muted) uppercase tracking-widest">
+        <h2 className="font-serif text-base text-(--color-text)">
           {t('learned')}
-        </p>
+        </h2>
         <Link
           href={allGuidesPath}
           className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors"

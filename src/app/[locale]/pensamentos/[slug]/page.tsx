@@ -83,7 +83,7 @@ function PostDetail({
         </header>
 
         {body && body.length > 0 && (
-          <div className="prose prose-invert max-w-none">
+          <div className="prose prose-invert max-w-none font-bitter">
             <PortableText value={body} />
           </div>
         )}

@@ -39,7 +39,7 @@ function ProjectsPageContent({
   const tp = useTranslations('projects')
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16">
+    <div className="max-w-6xl mx-auto px-6 py-16">
       <h1 className="font-serif text-4xl text-(--color-text) mb-12">{t('recentProjects')}</h1>
 
       {published.length > 0 && (

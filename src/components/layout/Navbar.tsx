@@ -23,7 +23,7 @@ export function Navbar({ locale }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 border-b border-(--color-border) bg-(--color-bg)/80 backdrop-blur-sm">
-      <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <Link
           href={base || '/'}
           className="font-serif text-base text-(--color-text) hover:text-(--color-accent) transition-colors"

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Young_Serif } from 'next/font/google'
+import { Noto_Sans, Source_Sans_3, Bitter } from 'next/font/google'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -10,16 +10,22 @@ import { Footer } from '@/components/layout/Footer'
 import { ThemeProvider } from '@/components/layout/ThemeProvider'
 import '../globals.css'
 
-const inter = Inter({
+const notoSans = Noto_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: '700',
+  variable: '--font-noto-sans',
   display: 'swap',
 })
 
-const youngSerif = Young_Serif({
+const sourceSans3 = Source_Sans_3({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-young-serif',
+  variable: '--font-source-sans-3',
+  display: 'swap',
+})
+
+const bitter = Bitter({
+  subsets: ['latin'],
+  variable: '--font-bitter-var',
   display: 'swap',
 })
 
@@ -50,7 +56,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale === 'pt' ? 'pt-BR' : locale}
-      className={`${inter.variable} ${youngSerif.variable}`}
+      className={`${notoSans.variable} ${sourceSans3.variable} ${bitter.variable}`}
       suppressHydrationWarning
     >
       <body className="min-h-screen flex flex-col bg-(--color-bg) text-(--color-text) font-sans antialiased">

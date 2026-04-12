@@ -10,13 +10,13 @@ export function Footer({ locale: _locale }: FooterProps) {
 
   return (
     <footer className="border-t border-(--color-border) mt-24">
-      <div className="max-w-5xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-(--color-text-muted)">
           © {new Date().getFullYear()} Caio Johnston. {t('rights')}
         </p>
         <div className="flex items-center gap-5">
           <a
-            href="https://linkedin.com/in/caiojohnston"
+            href="https://www.linkedin.com/in/caio-johnston/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-(--color-text-muted) hover:text-(--color-accent) transition-colors"

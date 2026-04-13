@@ -32,9 +32,9 @@ const bitter = Bitter({
 export const metadata: Metadata = {
   title: {
     template: '%s | Caio Johnston',
-    default: 'Caio Johnston — Data Scientist & AI Consultant',
+    default: 'Caio Johnston',
   },
-  description: 'Portfolio e site pessoal de Caio Johnston, Data Scientist e AI Consultant.',
+  description: 'Cientista de Dados com experiência prática em projetos de grande relevância na Accenture, IBM e Vale.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://caiojohnston.com'),
 }
 

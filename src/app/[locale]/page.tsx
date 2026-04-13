@@ -71,7 +71,7 @@ function ProjectsSection({
   return (
     <>
       {published.length > 0 && (
-        <section className="max-w-6xl mx-auto px-6 py-12 border-t border-(--color-border)">
+        <section className="max-w-6xl mx-auto px-6 py-12">
           <div className="flex items-center justify-between mb-8">
             <h2 className="font-serif text-base text-(--color-text)">
               {t('recentProjects')}
@@ -92,7 +92,7 @@ function ProjectsSection({
       )}
 
       {inProgress.length > 0 && (
-        <section className="max-w-6xl mx-auto px-6 py-12 border-t border-(--color-border)">
+        <section className="max-w-6xl mx-auto px-6 py-12">
           <h2 className="font-serif text-base text-(--color-text) mb-8">
             {t('building')}
           </h2>
@@ -123,7 +123,7 @@ function PostsSection({
   if (!posts.length) return null
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 border-t border-(--color-border)">
+    <section className="max-w-6xl mx-auto px-6 py-12">
       <div className="flex items-center justify-between mb-8">
         <h2 className="font-serif text-base text-(--color-text)">
           {t('thinking')}
@@ -160,7 +160,7 @@ function GuidesSection({
   if (!guides.length) return null
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-12 border-t border-(--color-border)">
+    <section className="max-w-6xl mx-auto px-6 py-12">
       <div className="flex items-center justify-between mb-8">
         <h2 className="font-serif text-base text-(--color-text)">
           {t('learned')}

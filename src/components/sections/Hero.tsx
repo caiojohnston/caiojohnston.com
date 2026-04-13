@@ -22,10 +22,10 @@ export function Hero({ data, locale }: HeroProps) {
       <div className="flex flex-col-reverse gap-10 md:grid md:grid-cols-[1fr_176px] md:items-stretch md:gap-10">
         <div>
           <h1 className="font-serif text-4xl md:text-5xl text-(--color-text) leading-tight mb-5">
-            {tagline ?? 'Data Scientist & AI Consultant'}
+            {tagline ?? 'Place Holder'}
           </h1>
           {bio && (
-            <p className="text-lg text-(--color-text-muted) leading-relaxed max-w-[80%]">
+            <p className="text-lg text-(--color-text-muted) leading-relaxed max-w-[60%]">
               {bio}
             </p>
           )}

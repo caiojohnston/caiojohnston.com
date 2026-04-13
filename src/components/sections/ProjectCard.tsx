@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { urlFor } from '@/lib/sanity/image'
+import { GuideThumbnail } from '@/components/ui/GuideThumbnail'
 import { Locale } from '@/i18n/config'
 
 interface Project {
@@ -29,9 +30,9 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
 
   return (
     <article className="group border border-(--color-border) rounded-lg overflow-hidden hover:border-(--color-accent)/40 transition-colors">
-      {project.image && (
-        <Link href={projectPath} className="block">
-          <div className="aspect-video bg-(--color-border) overflow-hidden">
+      <Link href={projectPath} className="block">
+        <div className="aspect-video bg-(--color-border) overflow-hidden">
+          {project.image ? (
             <Image
               src={urlFor(project.image as Parameters<typeof urlFor>[0]).width(800).height(450).url()}
               alt={title ?? ''}
@@ -39,9 +40,11 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
               height={450}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-          </div>
-        </Link>
-      )}
+          ) : (
+            <GuideThumbnail title={project.title.en ?? project.title.ptBR ?? project._id} fill />
+          )}
+        </div>
+      </Link>
       <div className="p-5">
         <div className="flex items-start justify-between gap-3 mb-2">
           <Link href={projectPath}>

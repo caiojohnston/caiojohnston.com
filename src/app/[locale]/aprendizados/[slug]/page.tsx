@@ -1,9 +1,12 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { PortableText } from 'next-sanity'
 import { sanityFetch } from '@/lib/sanity/client'
 import { guideBySlugQuery } from '@/lib/sanity/queries'
+import { urlFor } from '@/lib/sanity/image'
+import { TerminalBlock } from '@/components/ui/TerminalBlock'
 import type { SanityGuide } from '@/lib/sanity/types'
 import { Locale } from '@/i18n/config'
 
@@ -33,6 +36,7 @@ export default async function GuidePage({
       publishedAt={guide.publishedAt}
       title={title}
       excerpt={excerpt}
+      coverImage={guide.coverImage}
       body={body}
     />
   )
@@ -45,6 +49,7 @@ function GuideDetail({
   publishedAt,
   title,
   excerpt,
+  coverImage,
   body,
 }: {
   locale: Locale
@@ -53,6 +58,7 @@ function GuideDetail({
   publishedAt?: string
   title?: string
   excerpt?: string
+  coverImage?: object
   body?: import('@portabletext/types').TypedObject[]
 }) {
   const t = useTranslations('guides')
@@ -86,7 +92,19 @@ function GuideDetail({
               </span>
             )}
           </div>
-          <h1 className="font-mono text-3xl text-(--color-text) leading-tight mb-4">{title}</h1>
+          <h1 className="font-mono text-3xl text-(--color-text) leading-tight mb-6">{title}</h1>
+          {coverImage && (
+            <div className="mb-6 rounded-lg overflow-hidden aspect-video">
+              <Image
+                src={urlFor(coverImage as Parameters<typeof urlFor>[0]).width(1200).height(675).url()}
+                alt={title ?? ''}
+                width={1200}
+                height={675}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+          )}
           {excerpt && (
             <p className="text-lg text-(--color-text-muted) leading-relaxed">{excerpt}</p>
           )}
@@ -94,7 +112,36 @@ function GuideDetail({
 
         {body && body.length > 0 && (
           <div className="prose prose-invert max-w-none font-mono">
-            <PortableText value={body} />
+            <PortableText
+              value={body}
+              components={{
+                types: {
+                  image: ({ value }) => (
+                    <figure className="my-8">
+                      <Image
+                        src={urlFor(value).width(1200).height(800).fit('max').url()}
+                        alt={value.alt ?? ''}
+                        width={1200}
+                        height={800}
+                        className="w-full rounded-lg object-contain"
+                      />
+                      {value.caption && (
+                        <figcaption className="text-center text-sm text-(--color-text-muted) mt-2 not-italic">
+                          {value.caption}
+                        </figcaption>
+                      )}
+                    </figure>
+                  ),
+                  code: ({ value }) => (
+                    <TerminalBlock
+                      code={value.code ?? ''}
+                      language={value.language}
+                      filename={value.filename}
+                    />
+                  ),
+                },
+              }}
+            />
           </div>
         )}
       </article>

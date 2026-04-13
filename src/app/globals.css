@@ -8,6 +8,8 @@
   --color-accent:       #FBFBFD;
   --color-accent-hover: #E0E0E8;
   --color-border:       #222222;
+  --terminal-body-bg:   #1E1E1E;
+  --terminal-body-text: #D4D4D4;
 }
 
 [data-theme="light"] {
@@ -17,6 +19,8 @@
   --color-accent:       #010101;
   --color-accent-hover: #333333;
   --color-border:       #E0E0E0;
+  --terminal-body-bg:   #F5F5F5;
+  --terminal-body-text: #1e1e1e;
 }
 
 @theme inline {

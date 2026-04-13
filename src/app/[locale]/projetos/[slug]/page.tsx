@@ -113,7 +113,7 @@ function ProjectDetail({
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 mt-10 px-5 py-2.5 bg-(--color-accent) text-[#111111] text-sm font-medium rounded hover:bg-(--color-accent-hover) transition-colors"
+          className="inline-flex items-center gap-2 mt-10 px-5 py-2.5 bg-(--color-accent) text-(--color-bg) text-sm font-medium rounded hover:bg-(--color-accent-hover) transition-colors"
         >
           {t('viewProject')} ↗
         </a>

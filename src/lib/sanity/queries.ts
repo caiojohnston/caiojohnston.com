@@ -1,5 +1,13 @@
 import { groq } from 'next-sanity'
 
+export const aboutQuery = groq`
+  *[_type == "about"][0] {
+    photo,
+    headline,
+    body
+  }
+`
+
 export const heroQuery = groq`
   *[_type == "hero"][0] {
     tagline,

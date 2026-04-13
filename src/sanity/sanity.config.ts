@@ -23,6 +23,10 @@ export default defineConfig({
               .title('Hero')
               .id('hero')
               .child(S.document().schemaType('hero').documentId('hero')),
+            S.listItem()
+              .title('Sobre')
+              .id('about')
+              .child(S.document().schemaType('about').documentId('about')),
             S.divider(),
             S.documentTypeListItem('company').title('Empresas'),
             S.documentTypeListItem('project').title('Projetos'),

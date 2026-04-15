@@ -6,6 +6,8 @@ interface TerminalBlockProps {
   code: string
   language?: string
   filename?: string
+  style?: 'mac' | 'win' | 'plain'
+  title?: string
 }
 
 interface Parsed {
@@ -60,8 +62,11 @@ function CopyButton({ code }: { code: string }) {
   )
 }
 
-export function TerminalBlock({ code, language: _language, filename }: TerminalBlockProps) {
-  const { style, title, code: displayCode } = parse(code, filename)
+export function TerminalBlock({ code, language: _language, filename, style: styleProp, title: titleProp }: TerminalBlockProps) {
+  const parsed = parse(code, filename)
+  const style = styleProp ?? parsed.style
+  const title = titleProp ?? parsed.title
+  const displayCode = styleProp ? code : parsed.code
 
   const codeArea = (
     <div className="relative">

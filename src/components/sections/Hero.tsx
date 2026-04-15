@@ -19,20 +19,20 @@ export function Hero({ data, locale }: HeroProps) {
 
   return (
     <section className="max-w-6xl mx-auto px-6 pt-20 pb-16">
-      <div className="flex flex-col-reverse gap-10 md:grid md:grid-cols-[1fr_176px] md:items-stretch md:gap-10">
+      <div className="flex flex-col items-center text-center gap-10 md:grid md:grid-cols-[1fr_auto] md:items-stretch md:text-left md:gap-10">
         <div>
           <h1 className="font-serif text-4xl md:text-5xl text-(--color-text) leading-tight mb-5">
             {tagline ?? 'Place Holder'}
           </h1>
           {bio && (
-            <p className="text-lg text-(--color-text-muted) leading-relaxed max-w-[60%]">
+            <p className="text-lg text-(--color-text-muted) leading-relaxed max-w-full md:max-w-[65%] mx-auto md:mx-0">
               {bio}
             </p>
           )}
         </div>
 
         {data?.photo && (
-          <div className="relative h-56 md:h-auto overflow-hidden rounded-sm">
+          <div className="relative w-44 aspect-square md:w-auto md:h-full overflow-hidden mx-auto md:mx-0">
             <Image
               src={urlFor(data.photo as Parameters<typeof urlFor>[0]).width(480).url()}
               alt="Caio Johnston"

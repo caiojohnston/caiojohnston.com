@@ -45,7 +45,7 @@ export default async function SobrePage({
       )}
 
       {body && body.length > 0 && (
-        <div className="prose prose-invert max-w-none">
+        <div className="prose max-w-none">
           <PortableText
             value={body}
             components={{
@@ -53,11 +53,11 @@ export default async function SobrePage({
                 image: ({ value }) => (
                   <figure className="my-8">
                     <Image
-                      src={urlFor(value).width(1200).height(800).fit('max').url()}
+                      src={urlFor(value).width(1200).url()}
                       alt={value.alt ?? ''}
                       width={1200}
                       height={800}
-                      className="w-full rounded-lg object-contain"
+                      className="w-full h-auto rounded-lg"
                     />
                     {value.caption && (
                       <figcaption className="text-center text-sm text-(--color-text-muted) mt-2 font-sans not-italic">
@@ -65,6 +65,18 @@ export default async function SobrePage({
                       </figcaption>
                     )}
                   </figure>
+                ),
+              },
+              marks: {
+                link: ({ value, children }) => (
+                  <a
+                    href={value?.href}
+                    target={value?.blank ? '_blank' : undefined}
+                    rel={value?.blank ? 'noopener noreferrer' : undefined}
+                    className="underline underline-offset-2 hover:opacity-70 transition-opacity"
+                  >
+                    {children}
+                  </a>
                 ),
               },
             }}

@@ -49,5 +49,8 @@
   },
   "language": {
     "toggle": "English"
+  },
+  "common": {
+    "showFullContent": "Exibir conteúdo completo"
   }
 }

@@ -103,8 +103,24 @@ function ProjectDetail({
       )}
 
       {caseStudy && caseStudy.length > 0 && (
-        <div className="prose prose-invert max-w-none">
-          <PortableText value={caseStudy} />
+        <div className="prose max-w-none">
+          <PortableText
+            value={caseStudy}
+            components={{
+              marks: {
+                link: ({ value, children }) => (
+                  <a
+                    href={value?.href}
+                    target={value?.blank ? '_blank' : undefined}
+                    rel={value?.blank ? 'noopener noreferrer' : undefined}
+                    className="underline underline-offset-2 hover:opacity-70 transition-opacity"
+                  >
+                    {children}
+                  </a>
+                ),
+              },
+            }}
+          />
         </div>
       )}
 

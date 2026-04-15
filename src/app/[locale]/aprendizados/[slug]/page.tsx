@@ -7,6 +7,8 @@ import { sanityFetch } from '@/lib/sanity/client'
 import { guideBySlugQuery } from '@/lib/sanity/queries'
 import { urlFor } from '@/lib/sanity/image'
 import { TerminalBlock } from '@/components/ui/TerminalBlock'
+import { RevealContent } from '@/components/ui/RevealContent'
+import { GuideThumbnail } from '@/components/ui/GuideThumbnail'
 import type { SanityGuide } from '@/lib/sanity/types'
 import { Locale } from '@/i18n/config'
 
@@ -35,6 +37,7 @@ export default async function GuidePage({
       category={guide.category}
       publishedAt={guide.publishedAt}
       title={title}
+      thumbnailSeed={guide.title.en ?? guide.title.ptBR ?? slug}
       excerpt={excerpt}
       coverImage={guide.coverImage}
       body={body}
@@ -48,6 +51,7 @@ function GuideDetail({
   category,
   publishedAt,
   title,
+  thumbnailSeed,
   excerpt,
   coverImage,
   body,
@@ -57,6 +61,7 @@ function GuideDetail({
   category?: string
   publishedAt?: string
   title?: string
+  thumbnailSeed?: string
   excerpt?: string
   coverImage?: object
   body?: import('@portabletext/types').TypedObject[]
@@ -93,56 +98,81 @@ function GuideDetail({
             )}
           </div>
           <h1 className="font-mono text-3xl text-(--color-text) leading-tight mb-6">{title}</h1>
-          {coverImage && (
-            <div className="mb-6 rounded-lg overflow-hidden aspect-video">
-              <Image
-                src={urlFor(coverImage as Parameters<typeof urlFor>[0]).width(1200).height(675).url()}
-                alt={title ?? ''}
-                width={1200}
-                height={675}
-                className="w-full h-full object-cover"
-                priority
-              />
+          <div className="flex flex-col sm:flex-row gap-6 items-start">
+            <div className="relative shrink-0 w-full sm:w-48 aspect-square rounded-lg overflow-hidden bg-(--color-border) border border-(--color-border)">
+              {coverImage ? (
+                <Image
+                  src={urlFor(coverImage as Parameters<typeof urlFor>[0]).width(384).height(384).url()}
+                  alt={title ?? ''}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              ) : (
+                <GuideThumbnail title={thumbnailSeed ?? title ?? ''} fill />
+              )}
             </div>
-          )}
-          {excerpt && (
-            <p className="text-lg text-(--color-text-muted) leading-relaxed">{excerpt}</p>
-          )}
+            {excerpt && (
+              <p className="text-lg text-(--color-text-muted) leading-relaxed">{excerpt}</p>
+            )}
+          </div>
         </header>
 
         {body && body.length > 0 && (
-          <div className="prose prose-invert max-w-none font-mono">
-            <PortableText
-              value={body}
-              components={{
-                types: {
-                  image: ({ value }) => (
-                    <figure className="my-8">
-                      <Image
-                        src={urlFor(value).width(1200).height(800).fit('max').url()}
-                        alt={value.alt ?? ''}
-                        width={1200}
-                        height={800}
-                        className="w-full rounded-lg object-contain"
+          <RevealContent>
+            <div className="prose max-w-none font-mono">
+              <PortableText
+                value={body}
+                components={{
+                  types: {
+                    image: ({ value }) => (
+                      <figure className="my-8">
+                        <Image
+                          src={urlFor(value).width(1200).url()}
+                          alt={value.alt ?? ''}
+                          width={1200}
+                          height={800}
+                          className="w-full h-auto rounded-lg"
+                        />
+                        {value.caption && (
+                          <figcaption className="text-center text-sm text-(--color-text-muted) mt-2 not-italic">
+                            {value.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    ),
+                    code: ({ value }) => (
+                      <TerminalBlock
+                        code={value.code ?? ''}
+                        language={value.language}
+                        filename={value.filename}
                       />
-                      {value.caption && (
-                        <figcaption className="text-center text-sm text-(--color-text-muted) mt-2 not-italic">
-                          {value.caption}
-                        </figcaption>
-                      )}
-                    </figure>
-                  ),
-                  code: ({ value }) => (
-                    <TerminalBlock
-                      code={value.code ?? ''}
-                      language={value.language}
-                      filename={value.filename}
-                    />
-                  ),
-                },
-              }}
-            />
-          </div>
+                    ),
+                    terminalCode: ({ value }) => (
+                      <TerminalBlock
+                        code={value.code ?? ''}
+                        style={value.style}
+                        title={value.title}
+                        language={value.language}
+                      />
+                    ),
+                  },
+                  marks: {
+                    link: ({ value, children }) => (
+                      <a
+                        href={value?.href}
+                        target={value?.blank ? '_blank' : undefined}
+                        rel={value?.blank ? 'noopener noreferrer' : undefined}
+                        className="underline underline-offset-2 hover:opacity-70 transition-opacity"
+                      >
+                        {children}
+                      </a>
+                    ),
+                  },
+                }}
+              />
+            </div>
+          </RevealContent>
         )}
       </article>
     </div>

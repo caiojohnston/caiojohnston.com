@@ -12,6 +12,7 @@
     "@sanity/code-input": "^7.1.0",
     "@sanity/image-url": "^2.1.1",
     "@sanity/vision": "^5.20.0",
+    "@tailwindcss/typography": "^0.5.19",
     "next": "16.2.3",
     "next-intl": "^4.9.1",
     "next-sanity": "^12.2.2",

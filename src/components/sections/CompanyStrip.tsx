@@ -47,14 +47,14 @@ export function CompanyStrip({ companies }: CompanyStripProps) {
             >
               {company.logo ? (
                 <Image
-                  src={urlFor(company.logo as Parameters<typeof urlFor>[0]).height(64).url()}
+                  src={urlFor(company.logo as Parameters<typeof urlFor>[0]).height(128).url()}
                   alt={company.name}
-                  width={120}
-                  height={30}
+                  width={256}
+                  height={64}
                   className={`object-contain transition-all duration-200 ${
                     isHovered ? '' : 'grayscale'
                   }`}
-                  style={{ height: '30px', width: 'auto' }}
+                  style={{ height: '64px' }}
                 />
               ) : (
                 <span className="text-sm font-mono text-(--color-text-muted)">{company.name}</span>

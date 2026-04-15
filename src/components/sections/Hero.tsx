@@ -37,6 +37,7 @@ export function Hero({ data, locale }: HeroProps) {
               src={urlFor(data.photo as Parameters<typeof urlFor>[0]).width(480).url()}
               alt="Caio Johnston"
               fill
+              sizes="(max-width: 768px) 176px, 320px"
               className="object-cover object-top"
               priority
             />

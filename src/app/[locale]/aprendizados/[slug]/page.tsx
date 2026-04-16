@@ -80,9 +80,12 @@ function GuideDetail({
     <div className="max-w-3xl mx-auto px-6 py-16">
       <Link
         href={`${base}/${locale === 'en' ? 'learned' : 'aprendizados'}`}
-        className="text-sm text-(--color-text-muted) hover:text-(--color-accent) transition-colors mb-8 inline-block"
+        className="text-sm text-(--color-text-muted) hover:text-(--color-accent) transition-colors mb-8 inline-block flex items-center gap-1"
       >
-        {t('backToGuides')}
+        <span className="flex items-center gap-1">
+          <span aria-label="arrow" className="inline-block mr-1 text-base font-bold" style={{ fontFamily: 'sans-serif' }}>←</span>
+          {t('backToGuides').substring(2)} {/* Remove os primeiros 2 caracteres '← ' */}
+        </span>
       </Link>
 
       <article>

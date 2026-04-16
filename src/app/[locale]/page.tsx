@@ -78,9 +78,10 @@ function ProjectsSection({
             </h2>
             <Link
               href={allProjectsPath}
-              className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors"
+              className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors flex items-center gap-1"
             >
-              {tp('allProjects')} →
+              {tp('allProjects')}
+              <span aria-label="arrow" className="inline-block ml-1 text-base font-bold" style={{ fontFamily: 'sans-serif' }}>→</span>
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -130,9 +131,10 @@ function PostsSection({
         </h2>
         <Link
           href={allPostsPath}
-          className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors"
+          className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors flex items-center gap-1"
         >
-          {tb('allPosts')} →
+          {tb('allPosts')}
+          <span aria-label="arrow" className="inline-block ml-1 text-base font-bold" style={{ fontFamily: 'sans-serif' }}>→</span>
         </Link>
       </div>
       <div>
@@ -167,9 +169,10 @@ function GuidesSection({
         </h2>
         <Link
           href={allGuidesPath}
-          className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors"
+          className="text-sm text-(--color-accent) hover:text-(--color-accent-hover) transition-colors flex items-center gap-1"
         >
-          {tg('allGuides')} →
+          {tg('allGuides')}
+          <span aria-label="arrow" className="inline-block ml-1 text-base font-bold" style={{ fontFamily: 'sans-serif' }}>→</span>
         </Link>
       </div>
       <div>

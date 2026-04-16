@@ -66,9 +66,12 @@ function ProjectDetail({
     <div className="max-w-3xl mx-auto px-6 py-16">
       <Link
         href={`${base}/${locale === 'en' ? 'work' : 'projetos'}`}
-        className="text-sm text-(--color-text-muted) hover:text-(--color-accent) transition-colors mb-8 inline-block"
+        className="text-sm text-(--color-text-muted) hover:text-(--color-accent) transition-colors mb-8 inline-block flex items-center gap-1"
       >
-        {t('backToProjects')}
+        <span className="flex items-center gap-1">
+          <span aria-label="arrow" className="inline-block mr-1 text-base font-bold" style={{ fontFamily: 'sans-serif' }}>←</span>
+          {t('backToProjects').substring(2)} {/* Remove os primeiros 2 caracteres '← ' */}
+        </span>
       </Link>
 
       <h1 className="font-serif text-4xl text-(--color-text) mb-4">{title}</h1>
@@ -131,7 +134,8 @@ function ProjectDetail({
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 mt-10 px-5 py-2.5 bg-(--color-accent) text-(--color-bg) text-sm font-medium rounded hover:bg-(--color-accent-hover) transition-colors"
         >
-          {t('viewProject')} ↗
+          {t('viewProject')}
+          <span aria-label="arrow" className="inline-block ml-1 text-base font-bold" style={{ fontFamily: 'sans-serif' }}>↗</span>
         </a>
       )}
     </div>

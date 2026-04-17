@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { urlFor } from '@/lib/sanity/image'
 import { GuideThumbnail } from '@/components/ui/GuideThumbnail'
+import { Badge } from '@/components/ui/badge'
 import { Locale } from '@/i18n/config'
 
 interface Guide {
@@ -61,9 +62,9 @@ export function GuideCard({ guide, locale }: GuideCardProps) {
           </Link>
           <div className="shrink-0 flex items-center gap-3">
             {guide.category && (
-              <span className="text-xs font-mono text-(--color-accent) border border-(--color-accent)/30 px-2 py-0.5 rounded">
+              <Badge variant="outline" className="font-mono rounded border-(--color-accent)/30 text-(--color-accent)">
                 {guide.category}
-              </span>
+              </Badge>
             )}
             {date && (
               <time className="text-xs font-mono text-(--color-text-muted)">{date}</time>

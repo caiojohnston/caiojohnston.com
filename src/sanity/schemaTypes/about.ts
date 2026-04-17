@@ -4,6 +4,9 @@ export const about = defineType({
   name: 'about',
   title: 'Sobre',
   type: 'document',
+  // Singleton: impede criação de novos documentos via botão "+"
+  // O documento correto é sempre acessado pela sidebar com documentId fixo 'about'
+  __experimental_actions: ['update', 'publish', 'delete'],
   fields: [
     defineField({
       name: 'photo',

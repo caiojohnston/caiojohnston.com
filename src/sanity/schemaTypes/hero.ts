@@ -4,6 +4,9 @@ export const hero = defineType({
   name: 'hero',
   title: 'Hero',
   type: 'document',
+  // Singleton: impede criação de novos documentos via botão "+"
+  // O documento correto é sempre acessado pela sidebar com documentId fixo 'hero'
+  __experimental_actions: ['update', 'publish', 'delete'],
 
   fields: [
     defineField({

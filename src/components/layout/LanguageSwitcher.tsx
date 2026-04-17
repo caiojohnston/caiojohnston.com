@@ -4,6 +4,7 @@ import { useLocale } from 'next-intl'
 import { useParams } from 'next/navigation'
 import { useRouter, usePathname } from '@/i18n/navigation'
 import { Locale, localeNames } from '@/i18n/config'
+import { Button } from '@/components/ui/button'
 
 export function LanguageSwitcher() {
   const locale = useLocale() as Locale
@@ -21,12 +22,14 @@ export function LanguageSwitcher() {
   }
 
   return (
-    <button
+    <Button
       onClick={handleSwitch}
-      className="text-sm font-mono text-(--color-text-muted) hover:text-(--color-accent) transition-colors tracking-wide"
+      variant="ghost"
+      size="sm"
       aria-label={`Switch to ${localeNames[otherLocale]}`}
+      className="font-mono text-sm tracking-wide text-(--color-text-muted) hover:text-(--color-accent) hover:bg-transparent px-1"
     >
       {localeNames[otherLocale]}
-    </button>
+    </Button>
   )
 }

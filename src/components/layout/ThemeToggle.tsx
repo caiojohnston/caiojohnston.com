@@ -1,15 +1,18 @@
 'use client'
 
 import { useTheme } from './ThemeProvider'
+import { Button } from '@/components/ui/button'
 
 export function ThemeToggle() {
   const { theme, toggle } = useTheme()
 
   return (
-    <button
+    <Button
       onClick={toggle}
+      variant="ghost"
+      size="icon"
       aria-label={theme === 'dark' ? 'Ativar tema claro' : 'Ativar tema escuro'}
-      className="w-8 h-8 flex items-center justify-center text-(--color-text-muted) hover:text-(--color-text) transition-colors"
+      className="text-(--color-text-muted) hover:text-(--color-text) hover:bg-transparent"
     >
       {theme === 'dark' ? (
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden>
@@ -21,6 +24,6 @@ export function ThemeToggle() {
           <path d="M13.5 9.5A5.5 5.5 0 016.5 2.5a5.5 5.5 0 100 11 5.5 5.5 0 007-4z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )}
-    </button>
+    </Button>
   )
 }

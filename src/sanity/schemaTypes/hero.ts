@@ -6,6 +6,7 @@ export const hero = defineType({
   type: 'document',
   // Singleton: impede criação de novos documentos via botão "+"
   // O documento correto é sempre acessado pela sidebar com documentId fixo 'hero'
+  // @ts-expect-error — __experimental_actions é uma API interna do Sanity Studio
   __experimental_actions: ['update', 'publish', 'delete'],
 
   fields: [

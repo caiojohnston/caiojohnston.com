@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
+import { Button } from '@/components/ui/button'
 
 export function RevealContent({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
@@ -10,12 +11,13 @@ export function RevealContent({ children }: { children: React.ReactNode }) {
   return (
     <>
       {!open && (
-        <button
+        <Button
           onClick={() => setOpen(true)}
-          className="mt-10 px-5 py-2.5 bg-(--color-accent) text-(--color-bg) text-sm font-medium rounded hover:bg-(--color-accent-hover) transition-colors"
+          variant="default"
+          className="mt-10 rounded px-5 py-2.5 h-auto"
         >
           {t('showFullContent')}
-        </button>
+        </Button>
       )}
       {open && <div className="mt-10">{children}</div>}
     </>

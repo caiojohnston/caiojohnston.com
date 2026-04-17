@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { urlFor } from '@/lib/sanity/image'
 import { GuideThumbnail } from '@/components/ui/GuideThumbnail'
+import { Badge } from '@/components/ui/badge'
 import { Locale } from '@/i18n/config'
 
 interface Project {
@@ -53,9 +54,9 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
             </h3>
           </Link>
           {project.status === 'inProgress' && (
-            <span className="shrink-0 text-xs font-mono text-(--color-accent) border border-(--color-accent)/30 px-2 py-0.5 rounded">
+            <Badge variant="outline" className="shrink-0 font-mono rounded border-(--color-accent)/30 text-(--color-accent)">
               {t('inProgress')}
-            </span>
+            </Badge>
           )}
         </div>
         {description && (
@@ -66,12 +67,13 @@ export function ProjectCard({ project, locale }: ProjectCardProps) {
         {project.tags && project.tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mb-4">
             {project.tags.map((tag) => (
-              <span
+              <Badge
                 key={tag}
-                className="text-xs font-mono text-(--color-text-muted) bg-(--color-border) px-2 py-0.5 rounded"
+                variant="secondary"
+                className="font-mono rounded text-(--color-text-muted)"
               >
                 {tag}
-              </span>
+              </Badge>
             ))}
           </div>
         )}

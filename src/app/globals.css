@@ -122,6 +122,24 @@ html {
   background: var(--color-bg);
   color: var(--color-text);
   transition: background 0.2s ease, color 0.2s ease;
+  cursor: url('/cursor-default.svg') 10 4, default;
+}
+
+*, *::before, *::after {
+  cursor: inherit;
+}
+
+a, button, [role="button"], select, label,
+[tabindex]:not([tabindex="-1"]) {
+  cursor: url('/hand2.svg') 12 5, pointer;
+}
+
+input, textarea, [contenteditable] {
+  cursor: url('/cursor-text-dark.svg') 16 16, text;
+}
+
+[draggable="true"], .cursor-grab {
+  cursor: url('/hand1.svg') 16 16, grab;
 }
 
 body {

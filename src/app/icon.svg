@@ -1,0 +1,9 @@
+<svg width="1074" height="930" viewBox="-537 -465 2148 1860" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .prism { stroke: #FBFBFD; fill: #FBFBFD; fill-opacity: 0.01; }
+    @media (prefers-color-scheme: light) {
+      .prism { stroke: #010101; fill: #010101; }
+    }
+  </style>
+  <path class="prism" d="M541.266 17.5L1060.88 917.5L1065.21 925H8.66016L12.9902 917.5L532.605 17.5L536.936 10L541.266 17.5Z" stroke-width="80"/>
+</svg>

@@ -36,6 +36,19 @@ export const metadata: Metadata = {
   },
   description: 'Cientista de Dados com experiência prática em projetos de grande relevância na Accenture, IBM e Vale.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://caiojohnston.com'),
+  openGraph: {
+    title: 'Caio Johnston',
+    description: 'Data Scientist & AI Consultant',
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://caiojohnston.com',
+    siteName: 'Caio Johnston',
+    locale: 'pt_BR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Caio Johnston',
+    description: 'Data Scientist & AI Consultant',
+  },
 }
 
 export default async function LocaleLayout({

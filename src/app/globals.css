@@ -58,6 +58,10 @@
 /* ─── Tema claro ──────────────────────────────────────────────────── */
 /* As variáveis shadcn apontam para --color-*, então mudar --color-*  */
 /* aqui propaga automaticamente para todos os componentes shadcn.      */
+[data-theme="light"] html {
+  cursor: url('/cursor-default-light.svg') 9 4, default;
+}
+
 [data-theme="light"] {
   --color-bg:           #FBFBFD;
   --color-text:         #010101;
@@ -129,13 +133,22 @@ html {
   cursor: inherit;
 }
 
+p, h1, h2, h3, h4, h5, h6, li, dt, dd, blockquote,
+span, em, strong, small, time, address, td, th {
+  cursor: url('/cursor-text-dark.svg') 12 12, text;
+}
+
 a, button, [role="button"], select, label,
 [tabindex]:not([tabindex="-1"]) {
   cursor: url('/hand2.svg') 12 5, pointer;
 }
 
+a *, button *, [role="button"] * {
+  cursor: url('/hand2.svg') 12 5, pointer;
+}
+
 input, textarea, [contenteditable] {
-  cursor: url('/cursor-text-dark.svg') 16 16, text;
+  cursor: url('/cursor-text-dark.svg') 12 12, text;
 }
 
 [draggable="true"], .cursor-grab {

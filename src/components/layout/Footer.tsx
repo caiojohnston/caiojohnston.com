@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { Locale } from '@/i18n/config'
 
@@ -5,22 +6,15 @@ interface FooterProps {
   locale: Locale
 }
 
-function PrismLogo() {
+function EntangleLogo() {
   return (
-    <svg
-      width="28"
-      height="24"
-      viewBox="-40 -40 1154 1010"
-      fill="none"
-      aria-hidden="true"
-      className="shrink-0"
-    >
-      <path
-        d="M541.266 17.5L1060.88 917.5L1065.21 925H8.66016L12.9902 917.5L532.605 17.5L536.936 10L541.266 17.5Z"
-        stroke="currentColor"
-        strokeWidth="80"
-      />
-    </svg>
+    <Image
+      src="/entangle.svg"
+      alt="Entangle logo"
+      width={120}
+      height={20}
+      className="shrink-0 opacity-70"
+    />
   )
 }
 
@@ -31,7 +25,7 @@ export function Footer({ locale: _locale }: FooterProps) {
     <footer className="border-t border-(--color-border) mt-24">
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex items-center gap-3 text-(--color-text-muted)">
-          <PrismLogo />
+          <EntangleLogo />
           <p className="text-sm">
             © {new Date().getFullYear()} Caio Johnston. {t('rights')}
           </p>

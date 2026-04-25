@@ -10,7 +10,7 @@ export default async function Image() {
     (
       <div
         style={{
-          background: '#010101',
+          background: '#252525',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -22,20 +22,15 @@ export default async function Image() {
           position: 'relative',
         }}
       >
-        {/* Prism logo — top right */}
-        <svg
-          width="220"
-          height="190"
-          viewBox="-40 -40 1154 1010"
-          fill="none"
-          style={{ position: 'absolute', top: 64, right: 80, opacity: 0.18 }}
-        >
-          <path
-            d="M541.266 17.5L1060.88 917.5L1065.21 925H8.66016L12.9902 917.5L532.605 17.5L536.936 10L541.266 17.5Z"
-            stroke="#FBFBFD"
-            strokeWidth="80"
-          />
-        </svg>
+        {/* Entangle logo — top right */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`${process.env.NEXT_PUBLIC_SITE_URL}/entangle.svg`}
+          alt=""
+          width={420}
+          height={72}
+          style={{ position: 'absolute', top: 64, right: 80, opacity: 0.35 }}
+        />
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <span style={{ fontSize: 20, color: '#888888', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
